@@ -1,0 +1,1 @@
+This is the repo which tracks my progress and serves as a place to store my notes that i make in my journey to make an entire computer by my self.:)
