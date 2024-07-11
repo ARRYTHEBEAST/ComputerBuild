@@ -9,3 +9,5 @@ CHIP Xor {
     And (a=nota, b=b, out=notaAndb);
     Or  (a=aAndnotb, b=notaAndb, out=out);
 }
+
+// This was the tutorial. SO i just yoinked the code into my thing.

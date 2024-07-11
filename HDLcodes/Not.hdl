@@ -5,3 +5,5 @@ CHIP Not{
     PARTS:
     Nand(a=in, b=in, out=out);
 }
+
+// I read about this before, and so i knew.

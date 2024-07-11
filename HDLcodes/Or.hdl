@@ -1,0 +1,16 @@
+// Bro like how do i say or without saying or.
+// if a and b, out True, s
+// I think solving this involves something that was taught earlier, like we had to compare the truth tables and then do somthing
+// Oh yeah, boolean synthesis. Ill rewatch this.
+// Bro but this method involves adding OR. But i dont have OR, I HAVE TO CREATE OR.
+// Yeah no I tried but was not able to. But when i completely saw that video i got the answer presented to me.
+CHIP Or {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Not(in=a , out=nota );
+    Not(in=b , out=notb );
+    And(a=nota , b=notb , out=notand );
+    Not(in=notand , out=out );        
+}
