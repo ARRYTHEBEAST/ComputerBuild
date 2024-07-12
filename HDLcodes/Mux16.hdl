@@ -1,0 +1,255 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/1/Mux16.hdl
+/**
+ * 16-bit multiplexor: 
+ * for i = 0, ..., 15:
+ * if (sel = 0) out[i] = a[i], else out[i] = b[i]
+ */
+CHIP Mux16 {
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+    Not(in=a[0], out=ek0);
+    And(a=ek0, b=b[0], out=do0);
+    And(a=do0, b=sel, out=tin0);
+    Not(in=b[0], out=char0);
+    And(a=a[0], b=char0, out=pach0);
+    Not(in=sel, out=che0);
+    And(a=pach0, b=che0, out=sat0);
+    Not(in=sel, out=nau0);
+    And(a=a[0], b=b[0], out=das0);
+    And(a=das0, b=nau0, out=gyara0);
+    And(a=das0, b=sel, out=bara0);
+    Or(a=gyara0, b=bara0, out=tera0);
+    Or(a=tin0, b=sat0, out=ath0);
+    Or(a=ath0, b=tera0, out=out[0]);
+
+    Not(in=a[1], out=ek1);
+    And(a=ek1, b=b[1], out=do1);
+    And(a=do1, b=sel, out=tin1);
+    Not(in=b[1], out=char1);
+    And(a=a[1], b=char1, out=pach1);
+    Not(in=sel, out=che1);
+    And(a=pach1, b=che1, out=sat1);
+    Not(in=sel, out=nau1);
+    And(a=a[1], b=b[1], out=das1);
+    And(a=das1, b=nau1, out=gyara1);
+    And(a=das1, b=sel, out=bara1);
+    Or(a=gyara1, b=bara1, out=tera1);
+    Or(a=tin1, b=sat1, out=ath1);
+    Or(a=ath1, b=tera1, out=out[1]);
+
+    Not(in=a[2], out=ek2);
+    And(a=ek2, b=b[2], out=do2);
+    And(a=do2, b=sel, out=tin2);
+    Not(in=b[2], out=char2);
+    And(a=a[2], b=char2, out=pach2);
+    Not(in=sel, out=che2);
+    And(a=pach2, b=che2, out=sat2);
+    Not(in=sel, out=nau2);
+    And(a=a[2], b=b[2], out=das2);
+    And(a=das2, b=nau2, out=gyara2);
+    And(a=das2, b=sel, out=bara2);
+    Or(a=gyara2, b=bara2, out=tera2);
+    Or(a=tin2, b=sat2, out=ath2);
+    Or(a=ath2, b=tera2, out=out[2]);
+
+    Not(in=a[3], out=ek3);
+    And(a=ek3, b=b[3], out=do3);
+    And(a=do3, b=sel, out=tin3);
+    Not(in=b[3], out=char3);
+    And(a=a[3], b=char3, out=pach3);
+    Not(in=sel, out=che3);
+    And(a=pach3, b=che3, out=sat3);
+    Not(in=sel, out=nau3);
+    And(a=a[3], b=b[3], out=das3);
+    And(a=das3, b=nau3, out=gyara3);
+    And(a=das3, b=sel, out=bara3);
+    Or(a=gyara3, b=bara3, out=tera3);
+    Or(a=tin3, b=sat3, out=ath3);
+    Or(a=ath3, b=tera3, out=out[3]);
+
+    Not(in=a[4], out=ek4);
+    And(a=ek4, b=b[4], out=do4);
+    And(a=do4, b=sel, out=tin4);
+    Not(in=b[4], out=char4);
+    And(a=a[4], b=char4, out=pach4);
+    Not(in=sel, out=che4);
+    And(a=pach4, b=che4, out=sat4);
+    Not(in=sel, out=nau4);
+    And(a=a[4], b=b[4], out=das4);
+    And(a=das4, b=nau4, out=gyara4);
+    And(a=das4, b=sel, out=bara4);
+    Or(a=gyara4, b=bara4, out=tera4);
+    Or(a=tin4, b=sat4, out=ath4);
+    Or(a=ath4, b=tera4, out=out[4]);
+    
+    Not(in=a[5], out=ek5);
+    And(a=ek5, b=b[5], out=do5);
+    And(a=do5, b=sel, out=tin5);
+    Not(in=b[5], out=char5);
+    And(a=a[5], b=char5, out=pach5);
+    Not(in=sel, out=che5);
+    And(a=pach5, b=che5, out=sat5);
+    Not(in=sel, out=nau5);
+    And(a=a[5], b=b[5], out=das5);
+    And(a=das5, b=nau5, out=gyara5);
+    And(a=das5, b=sel, out=bara5);
+    Or(a=gyara5, b=bara5, out=tera5);
+    Or(a=tin5, b=sat5, out=ath5);
+    Or(a=ath5, b=tera5, out=out[5]);
+
+    Not(in=a[6], out=ek6);
+    And(a=ek6, b=b[6], out=do6);
+    And(a=do6, b=sel, out=tin6);
+    Not(in=b[6], out=char6);
+    And(a=a[6], b=char6, out=pach6);
+    Not(in=sel, out=che6);
+    And(a=pach6, b=che6, out=sat6);
+    Not(in=sel, out=nau6);
+    And(a=a[6], b=b[6], out=das6);
+    And(a=das6, b=nau6, out=gyara6);
+    And(a=das6, b=sel, out=bara6);
+    Or(a=gyara6, b=bara6, out=tera6);
+    Or(a=tin6, b=sat6, out=ath6);
+    Or(a=ath6, b=tera6, out=out[6]);
+
+    Not(in=a[7], out=ek7);
+    And(a=ek7, b=b[7], out=do7);
+    And(a=do7, b=sel, out=tin7);
+    Not(in=b[7], out=char7);
+    And(a=a[7], b=char7, out=pach7);
+    Not(in=sel, out=che7);
+    And(a=pach7, b=che7, out=sat7);
+    Not(in=sel, out=nau7);
+    And(a=a[7], b=b[7], out=das7);
+    And(a=das7, b=nau7, out=gyara7);
+    And(a=das7, b=sel, out=bara7);
+    Or(a=gyara7, b=bara7, out=tera7);
+    Or(a=tin7, b=sat7, out=ath7);
+    Or(a=ath7, b=tera7, out=out[7]);
+
+    Not(in=a[8], out=ek8);
+    And(a=ek8, b=b[8], out=do8);
+    And(a=do8, b=sel, out=tin8);
+    Not(in=b[8], out=char8);
+    And(a=a[8], b=char8, out=pach8);
+    Not(in=sel, out=che8);
+    And(a=pach8, b=che8, out=sat8);
+    Not(in=sel, out=nau8);
+    And(a=a[8], b=b[8], out=das8);
+    And(a=das8, b=nau8, out=gyara8);
+    And(a=das8, b=sel, out=bara8);
+    Or(a=gyara8, b=bara8, out=tera8);
+    Or(a=tin8, b=sat8, out=ath8);
+    Or(a=ath8, b=tera8, out=out[8]);
+
+    Not(in=a[9], out=ek9);
+    And(a=ek9, b=b[9], out=do9);
+    And(a=do9, b=sel, out=tin9);
+    Not(in=b[9], out=char9);
+    And(a=a[9], b=char9, out=pach9);
+    Not(in=sel, out=che9);
+    And(a=pach9, b=che9, out=sat9);
+    Not(in=sel, out=nau9);
+    And(a=a[9], b=b[9], out=das9);
+    And(a=das9, b=nau9, out=gyara9);
+    And(a=das9, b=sel, out=bara9);
+    Or(a=gyara9, b=bara9, out=tera9);
+    Or(a=tin9, b=sat9, out=ath9);
+    Or(a=ath9, b=tera9, out=out[9]);
+
+    Not(in=a[10], out=ek10);
+    And(a=ek10, b=b[10], out=do10);
+    And(a=do10, b=sel, out=tin10);
+    Not(in=b[10], out=char10);
+    And(a=a[10], b=char10, out=pach10);
+    Not(in=sel, out=che10);
+    And(a=pach10, b=che10, out=sat10);
+    Not(in=sel, out=nau10);
+    And(a=a[10], b=b[10], out=das10);
+    And(a=das10, b=nau10, out=gyara10);
+    And(a=das10, b=sel, out=bara10);
+    Or(a=gyara10, b=bara10, out=tera10);
+    Or(a=tin10, b=sat10, out=ath10);
+    Or(a=ath10, b=tera10, out=out[10]);
+
+    Not(in=a[11], out=ek11);
+    And(a=ek11, b=b[11], out=do11);
+    And(a=do11, b=sel, out=tin11);
+    Not(in=b[11], out=char11);
+    And(a=a[11], b=char11, out=pach11);
+    Not(in=sel, out=che11);
+    And(a=pach11, b=che11, out=sat11);
+    Not(in=sel, out=nau11);
+    And(a=a[11], b=b[11], out=das11);
+    And(a=das11, b=nau11, out=gyara11);
+    And(a=das11, b=sel, out=bara11);
+    Or(a=gyara11, b=bara11, out=tera11);
+    Or(a=tin11, b=sat11, out=ath11);
+    Or(a=ath11, b=tera11, out=out[11]);
+
+    Not(in=a[12], out=ek12);
+    And(a=ek12, b=b[12], out=do12);
+    And(a=do12, b=sel, out=tin12);
+    Not(in=b[12], out=char12);
+    And(a=a[12], b=char12, out=pach12);
+    Not(in=sel, out=che12);
+    And(a=pach12, b=che12, out=sat12);
+    Not(in=sel, out=nau12);
+    And(a=a[12], b=b[12], out=das12);
+    And(a=das12, b=nau12, out=gyara12);
+    And(a=das12, b=sel, out=bara12);
+    Or(a=gyara12, b=bara12, out=tera12);
+    Or(a=tin12, b=sat12, out=ath12);
+    Or(a=ath12, b=tera12, out=out[12]);
+
+    Not(in=a[13], out=ek13);
+    And(a=ek13, b=b[13], out=do13);
+    And(a=do13, b=sel, out=tin13);
+    Not(in=b[13], out=char13);
+    And(a=a[13], b=char13, out=pach13);
+    Not(in=sel, out=che13);
+    And(a=pach13, b=che13, out=sat13);
+    Not(in=sel, out=nau13);
+    And(a=a[13], b=b[13], out=das13);
+    And(a=das13, b=nau13, out=gyara13);
+    And(a=das13, b=sel, out=bara13);
+    Or(a=gyara13, b=bara13, out=tera13);
+    Or(a=tin13, b=sat13, out=ath13);
+    Or(a=ath13, b=tera13, out=out[13]);
+
+    Not(in=a[14], out=ek14);
+    And(a=ek14, b=b[14], out=do14);
+    And(a=do14, b=sel, out=tin14);
+    Not(in=b[14], out=char14);
+    And(a=a[14], b=char14, out=pach14);
+    Not(in=sel, out=che14);
+    And(a=pach14, b=che14, out=sat14);
+    Not(in=sel, out=nau14);
+    And(a=a[14], b=b[14], out=das14);
+    And(a=das14, b=nau14, out=gyara14);
+    And(a=das14, b=sel, out=bara14);
+    Or(a=gyara14, b=bara14, out=tera14);
+    Or(a=tin14, b=sat14, out=ath14);
+    Or(a=ath14, b=tera14, out=out[14]);
+
+    Not(in=a[15], out=ek15);
+    And(a=ek15, b=b[15], out=do15);
+    And(a=do15, b=sel, out=tin15);
+    Not(in=b[15], out=char15);
+    And(a=a[15], b=char15, out=pach15);
+    Not(in=sel, out=che15);
+    And(a=pach15, b=che15, out=sat15);
+    Not(in=sel, out=nau15);
+    And(a=a[15], b=b[15], out=das15);
+    And(a=das15, b=nau15, out=gyara15);
+    And(a=das15, b=sel, out=bara15);
+    Or(a=gyara15, b=bara15, out=tera15);
+    Or(a=tin15, b=sat15, out=ath15);
+    Or(a=ath15, b=tera15, out=out[15]);
+
+}
