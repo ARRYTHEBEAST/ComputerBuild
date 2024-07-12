@@ -1,0 +1,24 @@
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    Not(in=a , out=ek );
+    And(a=ek , b=b , out=do );
+    And(a=do , b=sel , out=tin );
+    Not(in=b , out=char );
+    And(a=a , b=char , out=pach );
+    Not(in=sel , out=che );
+    And(a=pach , b=che , out=sat );
+    Not(in=sel , out=nau );
+    And(a=a , b=b , out=das );
+    And(a=das , b=nau , out=gyara );
+    And(a=das , b=sel , out=bara );
+    Or(a=gyara , b=bara , out=tera );
+    Or(a=tin , b=sat , out=ath );
+    Or(a=ath , b=tera , out=out );
+
+}
+
+// Altight this just works. I made the logic by writing the conditions for positive output and just adding or in between.
+So yeah it just works. Lmao.
