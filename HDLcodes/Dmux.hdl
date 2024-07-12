@@ -1,0 +1,12 @@
+CHIP DMux {
+    IN in, sel;
+    OUT a, b;
+
+    PARTS:
+    Not(in=sel , out=ek );
+    And(a=in , b=ek , out=a );
+    And(a=in , b=sel , out=b );
+}
+
+// now this seriously i have no idea how i pulled off. I just fluked it i guess. l
+mao i just tinkered with the schematic and it just worked. lol
