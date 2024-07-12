@@ -1,0 +1,38 @@
+CHIP And16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    Nand(a=a[0], b=b[0] , out=temp0 );
+    Not(in=temp0 , out=out[0] );
+    Nand(a=a[1], b=b[1] , out=temp1 );
+    Not(in=temp1 , out=out[1] );
+    Nand(a=a[2], b=b[2] , out=temp2 );
+    Not(in=temp2 , out=out[2] );
+    Nand(a=a[3], b=b[3] , out=temp3 );
+    Not(in=temp3 , out=out[3] );
+    Nand(a=a[4], b=b[4] , out=temp4 );
+    Not(in=temp4 , out=out[4] );
+    Nand(a=a[5], b=b[5] , out=temp5 );
+    Not(in=temp5 , out=out[5] );
+    Nand(a=a[6], b=b[6] , out=temp6 );
+    Not(in=temp6 , out=out[6] );
+    Nand(a=a[7], b=b[7] , out=temp7 );
+    Not(in=temp7 , out=out[7] );
+    Nand(a=a[8], b=b[8] , out=temp8 );
+    Not(in=temp8 , out=out[8] );
+    Nand(a=a[9], b=b[9] , out=temp9 );
+    Not(in=temp9 , out=out[9] );
+    Nand(a=a[10], b=b[10] , out=temp10 );
+    Not(in=temp10 , out=out[10] );
+    Nand(a=a[11], b=b[11] , out=temp11 );
+    Not(in=temp11 , out=out[11] );
+    Nand(a=a[12], b=b[12] , out=temp12 );
+    Not(in=temp12 , out=out[12] );
+    Nand(a=a[13], b=b[13] , out=temp13 );
+    Not(in=temp13 , out=out[13] );
+    Nand(a=a[14], b=b[14] , out=temp14 );
+    Not(in=temp14 , out=out[14] );
+    Nand(a=a[15], b=b[15] , out=temp15 );
+    Not(in=temp15 , out=out[15] );
+}
