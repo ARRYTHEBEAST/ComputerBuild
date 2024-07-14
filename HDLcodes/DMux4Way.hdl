@@ -1,0 +1,14 @@
+// Alright i think i should revise what a DMux is first (@ _ @)
+// I think i should be able to directlu use the previosu approach here.
+// Or maybe before doing that i will just reverse the solution to Mux4Way16 and just reverse it and try.
+// LOL it just worked. yeah no shit lmao.
+
+CHIP DMux4Way {
+    IN in, sel[2];
+    OUT a, b, c, d;
+
+    PARTS:
+    DMux(in=in , sel=sel[1] , a=ek , b=do );
+    DMux(in=ek , sel=sel[0] , a=a , b=b );
+    DMux(in=do , sel=sel[0] , a=c , b=d );
+}
