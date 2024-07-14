@@ -1,3 +1,5 @@
+// Bro this one was way boring and it too long lmao.
+
 CHIP And16 {
     IN a[16], b[16];
     OUT out[16];
