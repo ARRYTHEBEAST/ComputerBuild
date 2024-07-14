@@ -1,0 +1,24 @@
+//Alright this is tough. Ill admit i have to do a lot of typing lmao.
+//SO i think after a bit tinkering. I have to break this problem into two:
+// 1. Design Mux4Way
+// 2. Repeat it 16 times
+//Now how to design 4way mux. well i think i have to use mux that i designed earlier.
+// Oh i also have a Mux16. Lets see now.
+// 1. I think the 16 way mux should be at the end. and whereever the end signal goes. wait. 
+// 2. I just saw the video and saw that dude explain AndMuxOr. and from this video i got the revalation that i
+can use the mux thing as a sort of selector of the previous two operations. Therefore as an experiment 
+I replicated that design and used a mux as a selector for two muxes. The first two muxes will get the same 
+inout which is the sel[1] this means the left most binary signal(ones place), and the final mux will set the
+(power 2 place signal). and just as a experiment i tried this desing and it worked.
+// Now write the code.
+CHIP Mux4Way16 {
+    IN a[16], b[16], c[16], d[16], sel[2];
+    OUT out[16];
+    
+    PARTS:
+    Mux16(a=a , b=b , sel=sel[0] , out= ek);
+    Mux16(a=c, b=d, sel=sel[0], out= do);
+    Mux16(a=ek , b=do , sel=sel[1] , out=out );
+}
+
+// Okay it works, i dont know about the sel[0] or sel[1] tho. I just interchanged it.
