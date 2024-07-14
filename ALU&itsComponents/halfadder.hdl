@@ -1,0 +1,14 @@
+// so after first glance this looks like a fancy and gate. imma check it out more.
+// alright the carry has to be attached to a and gate and the sum has to be attached to a XOR gate. I 
+think thats it.
+CHIP HalfAdder {
+    IN a, b;    // 1-bit inputs
+    OUT sum,    // Right bit of a + b 
+        carry;  // Left bit of a + b
+
+    PARTS:
+    And(a=a , b=b , out=carry );
+    Xor(a =a , b =b , out = sum );
+}
+
+// yeah it works.
