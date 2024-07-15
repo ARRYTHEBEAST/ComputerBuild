@@ -1,0 +1,3 @@
+//Alright this should also be simple. This looks like we have to use a half adder and add 1 to the input. 
+//that we can do by just adding 0000000000000001 to the input 16bit value.
+//Add16 should be used?
