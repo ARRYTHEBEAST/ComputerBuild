@@ -1,2 +1,35 @@
 //alright this is going to give me some problems. I need to spend some time thinking, ill first make my concept
 of binary adittion clear.
+// so first i tried adding some logic, i tried to do it intuvitevly. but that didnt work out. So i just used 
+the first approach which was considering the positive case and adding or. Because the both outpouts are not related so we can
+just consider the entire circut to be made of two different circutis and combine them together. That is what
+i did for both the carry and sum operation. And guess what, it worked lol.
+
+CHIP FullAdder {
+    IN a, b, c;  // 1-bit inputs
+    OUT sum,     // Right bit of a + b + c
+        carry;   // Left bit of a + b + c
+
+    PARTS:
+    Not(in=a , out=nota );
+    Not(in=b , out=notb );
+    Not(in=c , out=notc );
+    And(a=nota , b=notb , out=notaandnotb );
+    And(a=notaandnotb , b=c , out=notaandnnotbandc );
+    And(a=nota , b=b , out=notaandb );
+    And(a=notaandb , b=notc , out=notaandbandnotc );
+    Or(a=notaandnnotbandc , b=notaandbandnotc , out=ek );
+    Or(a=aandnotbandnotc , b=aandbandc , out=do );
+    And(a=a , b=notb , out=aandnotb );
+    And(a=aandnotb , b=notc , out=aandnotbandnotc );
+    And(a=a , b=b , out=aandb );
+    And(a=aandb , b=c , out=aandbandc );
+    Or(a=ek , b=do , out=sum );
+
+    And(a=notaandb , b=c , out=notaandbandc );
+    And(a= aandnotb , b = c, out =aandnotbandc );  
+    Or(a=notaandbandc , b=aandnotbandc , out=tin );
+    And(a=aandb , b=notc , out=aandbandnotc );  
+    Or(a=aandbandc , b=aandbandnotc , out=char );
+    Or(a=tin , b=char , out=carry );
+}
