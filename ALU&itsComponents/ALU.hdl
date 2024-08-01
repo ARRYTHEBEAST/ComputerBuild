@@ -1,0 +1,10 @@
+1. zx: if (zx == 1) sets x = 0
+    For this i can use a mux and the a will be input and b will be 0 and sel will the zx input. Therefore if 
+    zx is 1 then the output will always be 0.
+
+2. zy: if (zy == 1) sets y = 0      
+    The same as zx will be done here using mux16
+ 
+i think this is zeroing it not for the output but for the operation inside the ALU. and i think that the 
+f function is 0 or 1, 0 means add and 1 means & and i dont know what & means. But i think whatever the result 
+is after f funciton that will be the output.
