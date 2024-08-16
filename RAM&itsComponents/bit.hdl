@@ -7,3 +7,23 @@ i tried a bit, but i am having problem creating a loop and feeding in the out in
 
 i think i have to use the CLOCKED function, ill just continue with the course i think this is explained later.
 
+SHIT i am not able to do this. and i have checked the answer
+
+oh no. not really
+
+in this they are using two outs for the DFF chip. lollll
+
+
+CHIP Bit {
+    IN in, load;
+    OUT out;
+
+    PARTS:
+    
+    Mux(a=t1, b=in, sel=load, out=w1);
+    DFF(in=w1, out=t1, out=out);
+
+}
+
+
+wtf. like how am i supposed to know that there are two outs. bro i didnt actually fail this. 
