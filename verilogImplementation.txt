@@ -1,0 +1,83 @@
+module Not(
+    input in,
+    output out
+);
+    assign out = ~in;
+endmodule
+
+module And(
+    input a,
+    input b,
+    output out
+);
+    assign out = a & b;
+endmodule
+
+module Or(
+    input a,
+    input b,
+    output out
+);
+    assign out = a | b;
+endmodule
+
+module Mux(
+    input a,
+    input b,
+    input sel,
+    output out
+);
+    assign out = sel ? b : a;
+endmodule
+
+module DMux(
+    input in,
+    input sel,
+    output a,
+    output b
+);
+    assign a = sel ? 1'b0 : in;
+    assign b = sel ? in : 1'b0;
+endmodule
+
+module ALU(
+    input [15:0] x,
+    input [15:0] y,
+    input zx,
+    input nx,
+    input zy,
+    input ny,
+    input f,
+    input no,
+    output [15:0] out,
+    output zr,
+    output ng
+);
+
+    wire [15:0] x_after_zx, x_after_nx, y_after_zy, y_after_ny;
+    wire [15:0] and_result, add_result, f_result, out_before_no;
+
+    // Zero and negate x
+    assign x_after_zx = zx ? 16'b0 : x;
+    assign x_after_nx = nx ? ~x_after_zx : x_after_zx;
+
+    // Zero and negate y
+    assign y_after_zy = zy ? 16'b0 : y;
+    assign y_after_ny = ny ? ~y_after_zy : y_after_zy;
+
+    // Compute f
+    assign and_result = x_after_nx & y_after_ny;
+    assign add_result = x_after_nx + y_after_ny;
+    assign f_result = f ? add_result : and_result;
+
+    // Negate output if needed
+    assign out_before_no = f_result;
+    assign out = no ? ~out_before_no : out_before_no;
+
+    // Set zr flag
+    assign zr = (out == 16'b0);
+
+    // Set ng flag
+    assign ng = out[15];
+
+endmodule
