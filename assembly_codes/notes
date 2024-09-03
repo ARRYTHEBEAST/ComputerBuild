@@ -170,6 +170,14 @@ word = Screen[32*row + col/16]
 word = RAM[16384 + word]
 (col%16)th bit will be the target which we can turn on or off.
 
+This memory map is stored in RAM
+
+
+2. Keyboard Memory Map
+When a key is pressed then the key's scan code is sent through the wire to the RAM register. when the keyboard is not being tpouched then the register is 0
+the register is RAM[24576]
+
+
 
 
 
