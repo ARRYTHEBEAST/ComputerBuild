@@ -213,8 +213,32 @@ M=1
 @10
 0;JMP
 
+However the above code is cryptic.
+better way:
+
+@R0
+D=M
+
+@POSITIVE
+D;JGT
+
+@R1
+M=0
+@END
+0; JMP
+
+(POSITIVE)
+@R1
+M=1
+
+(END)
+@END
+0;JMP
 
 
+Variables:
+
+@variable_name will tell the interpreter to chose the closeset available empty register to assign. So it is a registrt but the register adress is not definded. 
 
 
 
