@@ -156,7 +156,21 @@ M=D     // RAM[1] = RAM[17]
 
 
 
-Controlling Input/Outpu devices using hack computer language
+Controlling Input/Outpu devices using hack computer language.
+
+1.Screen
+
+Screen Memory Map
+
+the display is refreshed with the screen memory map. 
+Screen has 256x512
+
+to set pixel (row,column) on/off
+word = Screen[32*row + col/16]
+word = RAM[16384 + word]
+(col%16)th bit will be the target which we can turn on or off.
+
+
 
 
 
