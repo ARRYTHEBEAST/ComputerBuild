@@ -241,6 +241,11 @@ Variables:
 @variable_name will tell the interpreter to chose the closeset available empty register to assign. So it is a registrt but the register adress is not definded. 
 
 
+Iteration:
+
+
+
+
 
 
 
