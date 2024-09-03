@@ -1,0 +1,169 @@
+# Turing Machine
+One Machine acting like all machines. Reprogrammable, general purpose machine.
+
+The program is stored in the ROM in the computer. The program here is the set of binary stored adress by adress. in the ROM which the CPU access adress by adress.
+
+Q. How are we going to specify the instructions?
+Q. How to perform the specified instruction at a given time?
+Q. How to operate hardware using software?
+
+Instruction in machine language are squences of bits
+
+0100010 0011 0010 : Machine Language
+ADD     R3   R2   : Assembly Language
+
+Elements Of Machine Language:
+
+Arithmetic Operations
+Logical Operations
+Flow COntrol
+
+
+Memory Hiracrchy
+Accessing memory is computationaly expensive.
+accesing the memory consumes more time than the operations performed on them.
+Solution: Memory Hirarchy
+
+Register < Cache < Main Memory < Disk
+
+CPU has few easily accessed registers.
+
+What are the registers:
+
+1. Data Registers: put numeber in it
+2. Adress Registers: put adress of the main memory
+
+how do we decide what data to work upn
+Adressing mode
+
+1. Register
+    ADD REGISTER 1 to REGISTER 2 and Store in REGISTER 2
+
+2. Direct 
+    ADD REGISTER 1 to MEM[100] and store in MEM[100]
+
+3. Indirect
+    A is a another adreess
+    ADD MEM[A] to REGISTER 2 and Sstore in MEM[A]
+
+4. Immidiate
+    ADD REG 1 to 3 and store in REG 1
+
+Flow control
+JUMP to instructions
+
+
+Hack Machine Language:
+
+Hack COmuter:
+
+16 bit machine:
+    1.Data Memory(RAM): Sequence of 16 bit registers
+    2. Instruciton memory(ROM): 16 bit registers
+    3. CPU: performs instructions
+    4. bus: move data from one place to another
+        1. Data bus CPU to memory
+        2.instruction bus ROM TO CPUT
+        3. Adress bus
+    5.Reset
+
+Registers:
+1.D
+    data value
+2.A
+    data or adress
+3.M
+    selected register
+
+
+A instruciton:
+'@'
+
+Eg:
+@21
+effect:
+SElects A register to 21
+RAM 21 becomes the selecred ram 21
+
+Usage expamle:
+@100
+M = -1
+
+C instruction:
+
+dest = comp ; jump
+
+comp = All the alu operations
+dest = null, M, D, MD, A, AM ,AD, AMD
+jump = null, JGT, JEQ, JGE, JLT, JNT, JLR, JMP
+
+example
+@1 //set A register to 1
+M=A-1;JEQ // computes A-1 and stores in M(which is RAM[A(1)])
+          // Computation is 0 therefore JEQ causes jump to A which is one. 
+
+Hack Language Specification:
+A instruction
+@value
+non negative decimal contsant <= 32767
+
+0 000000000000000
+first 0 is opcode, it defines that this is A instruciton, rest all are the data value which stores the numenbr or adress numebr
+
+1 1 1 a c1 c2 c3 c4 c5 c6 d1 d2 d3 j1 j2 j3
+opcode, 2 bits not used, c= comp bits, d =destination, j=jump
+
+There are some binary values which map the 6 c bits to the operation bits. this maps symbols to binary bits.
+same is for the destination bits and the jump bits. 
+
+Hack Program:
+
+//initialization
+
+//i is initialized to be 1 
+@16     //select 16
+M=1     // RAM[16] = 1
+
+//sum is intitialized to be 0
+@17     // Select 17
+M=0     // RAM[17] = 0
+
+//loop condition
+@16     //Select 16
+D=M     // D reg = RAM[16] (1?)
+@0      //select 0 which is the n value. 
+D=D-M   // i - n 
+@17     //select 17
+D;JGT   //if (i-n) > 0 then jump to 17
+
+//addition operation
+@16     //select 16
+D=M     // D is RAM[16]
+@17     //select 17
+M=D+M   //RAM[17]  is RAM[16] plus RAM[17]
+@16     // select  16
+M=M+1   // RAM[16] is RAM[16] plus 1
+@4      //Select 4
+0;JMP   //JUMP to 4 unconditional
+
+//end and RAM[1] value output
+@17     //select 17
+D=M     //D is RAM[17]
+@1      // select 1
+M=D     // RAM[1] = RAM[17]
+@21     // select 21
+0;JMP   //Jump to 21 unconditional
+
+
+
+
+
+
+
+
+
+
+
+
+
+
