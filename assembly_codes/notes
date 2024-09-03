@@ -178,6 +178,42 @@ When a key is pressed then the key's scan code is sent through the wire to the R
 the register is RAM[24576]
 
 
+HACK PROGRAMMING:
+Working with registers and memory
+Branching
+Variables
+Iteration
+Pointers
+Input/Output
+
+
+Branching:
+basically it is looping. 
+GOTO 
+
+if R0>0:
+    R1=1
+else:
+    R1=0
+
+@R0
+D=M
+
+@8
+D;JGT
+
+@R1
+M=0
+@10
+0;JMP
+
+@R1
+M=1
+
+@10
+0;JMP
+
+
 
 
 
